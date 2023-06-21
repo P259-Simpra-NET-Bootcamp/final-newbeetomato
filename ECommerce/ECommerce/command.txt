@@ -1,0 +1,5 @@
+﻿
+
+komutu çalıştırın: Add-Migration InitialCreate
+Migration dosyası oluşturulduktan sonra update komutunu çalıştırarak veritabanını güncelleyin: Update-Database
+
