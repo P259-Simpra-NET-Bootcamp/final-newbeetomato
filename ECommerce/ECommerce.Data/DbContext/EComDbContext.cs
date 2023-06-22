@@ -28,7 +28,6 @@ public class EComDbContext : IdentityDbContext<ApplicationUser>
         modelBuilder.ApplyConfiguration(new CouponConfiguration());
         modelBuilder.ApplyConfiguration(new OrderConfiguration());
         modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
-        modelBuilder.ApplyConfiguration(new ProductConfiguration());
         modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
 
 

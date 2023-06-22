@@ -1,5 +1,5 @@
 ﻿using ECommerce.Data.DbContext;
-using ECommerce.Data.Domain;
+using Microsoft.EntityFrameworkCore;
 using ECommerce.Data.Repository.Base;
 
 namespace ECommerce.Data.Repository.Order;
@@ -13,37 +13,35 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
 
     public void CreateOrder(int cartId)
     {
-        var cart = dbContext.Set<Domain.Cart>().Find(cartId);
+        var cart = dbContext.Set<Domain.Cart>()
+            .Include(c => c.CartItems)
+            .FirstOrDefault(c => c.Id == cartId);
 
         if (cart != null)
         {
-
-            // Yeni bir Order oluştur
             var order = new Domain.Order
             {
                 UserId = cart.UserId,
-                TotalAmount = CalculateTotalAmount(cart),
-                // Diğer Order özelliklerini ayarlayın
+                OrderItems = new List<Domain.OrderItem>(),
+                TotalAmount = cart.CartTotalAmount
             };
 
-            // Order'ı veritabanına ekle
-            dbContext.Set<Order>().Add(order);
+            dbContext.Set<Domain.Order>().Add(order);
+            dbContext.SaveChanges();
 
-            // CartItem'ları OrderItem olarak dönüştür ve veritabanına ekle
             foreach (var cartItem in cart.CartItems)
             {
-                var orderItem = new OrderItem
+                var orderItem = new Domain.OrderItem
                 {
                     OrderId = order.Id,
                     ProductId = cartItem.ProductId,
-                    Quantity = cartItem.Quantity,
-                    Price = cartItem.Price,
-                    // Diğer OrderItem özelliklerini ayarlayın
+                    Quantity = cartItem.Quantity
                 };
 
-                dbContext.Set<OrderItem>().Add(orderItem);
+                order.OrderItems.Add(orderItem);
             }
 
+            dbContext.Set<Domain.Order>().Add(order);
             dbContext.SaveChanges();
         }
     }
@@ -57,6 +55,6 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
             .Where(x => x.UserId == userId && x.CreatedAt >= startDate && x.CreatedAt <= endDate)
             .ToList();
     }
-    
+
 }
 

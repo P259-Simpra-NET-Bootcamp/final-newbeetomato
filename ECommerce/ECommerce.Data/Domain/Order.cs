@@ -37,7 +37,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.HasMany(x => x.OrderItems)
             .WithOne(x => x.Order)
             .HasForeignKey(x => x.OrderId)
-            .IsRequired(true);
+            .IsRequired(false); 
 
         builder.HasMany(x => x.Coupons)
             .WithOne(x => x.Order)

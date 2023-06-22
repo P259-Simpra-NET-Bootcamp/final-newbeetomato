@@ -28,9 +28,11 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
 
     public virtual ApiResponse AddCartItem(int cartId, int productId, int quantity)
     {
+
         try
         {
-            var entity = unitOfWork.AddCartItemToCart(cartId, productId, quantity);
+            var entity = unitOfWork.CartItemRepository().AddCartItemToCart(cartId, productId, quantity);
+
             if (entity is null)
             {
                 Log.Warning("Record not found for Id " + cartId);
@@ -41,18 +43,18 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
         }
         catch (Exception ex)
         {
-            
-                Log.Error(ex, "AddCartItem Exception");
+
+            Log.Error(ex, "AddCartItem Exception");
             return new ApiResponse(ex.Message);
         }
-       
+
     }
-    public virtual ApiResponse IncreaseCartItemQuantity(int cartItemId, int quantityToAdd)
+    public virtual ApiResponse IncreaseOneCartItemQuantity(int cartItemId)
     {
-        
+
         try
         {
-            var entity = unitOfWork.IncreaseCartItemQuantity(cartItemId, quantityToAdd);
+            var entity = unitOfWork.CartItemRepository().IncreaseOneCartItemQuantity(cartItemId);
             if (entity is null)
             {
                 Log.Warning("Record not found for Id " + cartItemId);
@@ -69,15 +71,15 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
         }
     }
 
-    public virtual ApiResponse DecreaseCartItemQuantity(int cartItemId, int quantityToSubtract)
+    public virtual ApiResponse DecreaseOneCartItemQuantity(int cartItemId)
     {
-        
+
         try
         {
-            var entity = unitOfWork.DecreaseCartItemQuantity(cartItemId, quantityToSubtract);
+            var entity = unitOfWork.CartItemRepository().DecreaseOneCartItemQuantity(cartItemId);
             if (entity is null)
             {
-                Log.Warning("Record not found for Id " + cartItemId);
+                Log.Warning("Record not found for Id  " + cartItemId);
                 return new ApiResponse("Record not found ");
             }
             return new ApiResponse();
@@ -93,13 +95,13 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
 
     public virtual ApiResponse UpdateCartItemQuantity(int cartItemId, int newQuantity)
     {
-        
+
         try
         {
-            var entity = unitOfWork.UpdateCartItemQuantity(cartItemId, newQuantity);
+            var entity = unitOfWork.CartItemRepository().UpdateCartItemQuantity(cartItemId, newQuantity);
             if (entity is null)
             {
-                Log.Warning("Record not found for Id " + cartItemId);
+                Log.Warning("Record not found for Id or unwanted quantity number" + cartItemId);
                 return new ApiResponse("Record not found ");
             }
             return new ApiResponse();

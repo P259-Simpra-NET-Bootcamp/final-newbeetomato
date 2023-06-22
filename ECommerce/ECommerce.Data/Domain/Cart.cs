@@ -26,10 +26,6 @@ public class CartConfiguration : IEntityTypeConfiguration<Cart>
         builder.Property(x => x.UpdatedAt).IsRequired(false);
         builder.Property(x => x.UpdatedBy).IsRequired(false).HasMaxLength(30);
         builder.Property(x => x.UserId).IsRequired(true);
-        builder.HasMany(x => x.CartItems)
-            .WithOne(x => x.Cart)
-            .HasForeignKey(x => x.CartId)
-            .IsRequired(true)
-            .OnDelete(DeleteBehavior.Cascade); 
+        
     }
 }

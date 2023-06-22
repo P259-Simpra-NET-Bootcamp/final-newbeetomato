@@ -83,8 +83,6 @@ namespace ECommerce.Operation.BaseSrvc
             {
                 var entity = mapper.Map<TRequest, TEntity>(request);
                 entity.CreatedAt = DateTime.UtcNow;
-                entity.CreatedBy = "sim@sim.com";
-
                 unitOfWork.Repository<TEntity>().Insert(entity);
                 unitOfWork.Complete();
                 return new ApiResponse();

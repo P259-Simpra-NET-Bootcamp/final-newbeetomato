@@ -10,8 +10,8 @@ namespace ECommerce.Data.Repository.CartItem;
 
 public interface ICartItemRepository:IGenericRepository<Domain.CartItem>
 {
-    void AddCartItemToCart(int cartId, int productId, int quantity);
-    void IncreaseCartItemQuantity(int cartItemId, int quantityToAdd);
-    void DecreaseCartItemQuantity(int cartItemId, int quantityToSubtract);
-    void UpdateCartItemQuantity(int cartItemId, int newQuantity);
+    Domain.Cart AddCartItemToCart(int cartId, int productId, int quantity);
+    Domain.CartItem IncreaseOneCartItemQuantity(int cartItemId);
+    Domain.CartItem DecreaseOneCartItemQuantity(int cartItemId);
+    Domain.CartItem UpdateCartItemQuantity(int cartItemId, int newQuantity);
 }

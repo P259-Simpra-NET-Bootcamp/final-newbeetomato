@@ -6453,11 +6453,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\BİTİRME\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
+      "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\bitirme\\final-newbeetomato\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
       "projectName": "ECommerce.Base",
-      "projectPath": "C:\\Users\\ibrah\\Desktop\\BİTİRME\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
+      "projectPath": "C:\\Users\\ibrah\\Desktop\\bitirme\\final-newbeetomato\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
       "packagesPath": "C:\\Users\\ibrah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ibrah\\Desktop\\BİTİRME\\ECommerce\\ECommerce.Base\\obj\\",
+      "outputPath": "C:\\Users\\ibrah\\Desktop\\bitirme\\final-newbeetomato\\ECommerce\\ECommerce.Base\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ibrah\\AppData\\Roaming\\NuGet\\NuGet.Config",

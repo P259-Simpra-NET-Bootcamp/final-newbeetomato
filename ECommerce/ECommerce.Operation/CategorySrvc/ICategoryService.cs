@@ -13,6 +13,7 @@ namespace ECommerce.Operation.CategorySrvc
 {
     public interface ICategoryService : IBaseService<Category, CategoryRequest, CategoryResponse>
     {
+        ApiResponse<CategoryResponse> FindByName(string name);
         ApiResponse<IEnumerable<ProductResponse>> GetProductsByCategory(int categoryId);
         ApiResponse<IEnumerable<int>> GetProductIdsByCategory(int categoryId);
     }

@@ -11,5 +11,6 @@ namespace ECommerce.Schema.Cart;
 public class CartRequest:BaseRequest
 {
     public int UserId { get; set; }
+    public decimal CartTotalAmount { get; set; }
     public List<CartItemRequest> CartItems { get; set; }
 }

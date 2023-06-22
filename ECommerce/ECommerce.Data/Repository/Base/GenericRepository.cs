@@ -101,9 +101,9 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
                 dbContext.SaveChanges();
                 dbDcontextTransaction.Commit();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                // logging
+                
                 dbDcontextTransaction.Rollback();
             }
         }

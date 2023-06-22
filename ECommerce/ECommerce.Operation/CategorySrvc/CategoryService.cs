@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ECommerce.Base.Response;
 using ECommerce.Data.Domain;
+using ECommerce.Data.Repository.Category;
 using ECommerce.Data.UnitOfWork;
 using ECommerce.Operation.BaseSrvc;
 using ECommerce.Schema.Category;
@@ -21,13 +22,32 @@ namespace ECommerce.Operation.CategorySrvc
             this.mapper = mapper;
         }
 
-        // Özel metotlarınızı burada tanımlayabilirsiniz
+        public ApiResponse<CategoryResponse> FindByName(string name) 
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(name)) { return new ApiResponse<CategoryResponse>("String NullorEmpty"); }
+                
+                    var entities = unitOfWork.CategoryRepository().FindByName(name);
+                    var mapped = mapper.Map<CategoryResponse>(entities); 
+                    return new ApiResponse<CategoryResponse>(mapped);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "FindByName Exception");
+                return new ApiResponse<CategoryResponse>(ex.Message);
+            }
+        }
+        public ApiResponse<int> GetAllCount()
+        {
+            int count = unitOfWork.CategoryRepository().GetAllCount();
+            return new ApiResponse<int>(count);
+        }
 
         public ApiResponse<IEnumerable<ProductResponse>> GetProductsByCategory(int categoryId)
         {
             try
             {
-                // Kategoriye ait ürünleri alacak kodları burada yazabilirsiniz
                 var products = unitOfWork.Repository<Product>().WhereWithInclude(p => p.CategoryId == categoryId, "Category");
 
                 var mappedProducts = mapper.Map<IEnumerable<Product>, IEnumerable<ProductResponse>>(products);

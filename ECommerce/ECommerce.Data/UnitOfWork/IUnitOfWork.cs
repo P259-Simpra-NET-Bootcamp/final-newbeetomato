@@ -1,5 +1,6 @@
 ﻿using ECommerce.Base.Model;
 using ECommerce.Data.Repository.Base;
+using ECommerce.Data.Repository.Cart;
 using ECommerce.Data.Repository.CartItem;
 using ECommerce.Data.Repository.Category;
 using System;
@@ -13,10 +14,9 @@ namespace ECommerce.Data.UnitOfWork;
 public interface IUnitOfWork:IDisposable
 {
     IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel;
-    ICartItemRepository AddCartItemToCart(int cartId, int productId, int quantity);
-    ICartItemRepository IncreaseCartItemQuantity(int cartItemId, int quantityToAdd);
-    ICartItemRepository DecreaseCartItemQuantity(int cartItemId, int quantityToSubtract);
-    ICartItemRepository UpdateCartItemQuantity(int cartItemId, int newQuantity);
+    ICartRepository CartRepository();
+    ICartItemRepository CartItemRepository();
+    ICategoryRepository CategoryRepository();
     void Complete();
     void CompleteWithTransaction();
 }

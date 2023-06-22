@@ -22,24 +22,21 @@ public class UnitOfWork : IUnitOfWork
         this.dbContext = dbContext;
 
     }
-    public ICartRepository 
-    public ICartItemRepository AddCartItemToCart(int cartId, int productId, int quantity) 
+    public ICartItemRepository CartItemRepository()
+    { 
+        return new CartItemRepository(dbContext); 
+    }
+
+    public ICartRepository CartRepository()
     {
-        return new CartItemRepository(dbContext);
-    } 
+        return new CartRepository(dbContext);
+    }
+   
+    public ICategoryRepository CategoryRepository()
+    {
+        return new CategoryRepository(dbContext);
+    }
     
-    public ICartItemRepository IncreaseCartItemQuantity(int cartItemId, int quantityToAdd)
-    {
-        return new CartItemRepository(dbContext);
-    }
-    public ICartItemRepository DecreaseCartItemQuantity(int cartItemId, int quantityToSubtract) 
-    {
-        return new CartItemRepository(dbContext);
-    }
-    public ICartItemRepository UpdateCartItemQuantity(int cartItemId, int newQuantity)
-    {
-        return new CartItemRepository(dbContext);
-    }
 
     public IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel
     {
@@ -59,7 +56,7 @@ public class UnitOfWork : IUnitOfWork
                 dbContext.SaveChanges();
                 dbDcontextTransaction.Commit();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 
                 dbDcontextTransaction.Rollback();

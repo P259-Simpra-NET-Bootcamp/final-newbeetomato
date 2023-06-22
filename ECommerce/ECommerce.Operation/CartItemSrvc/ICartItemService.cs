@@ -13,8 +13,8 @@ namespace ECommerce.Operation.CartItemSrvc
     public interface ICartItemService : IBaseService<CartItem, CartItemRequest, CartItemResponse>
     {
          ApiResponse AddCartItem(int cartId, int productId, int quantity);
-         ApiResponse IncreaseCartItemQuantity(int cartItemId, int quantityToAdd);
-         ApiResponse DecreaseCartItemQuantity(int cartItemId, int quantityToSubtract);
+         ApiResponse IncreaseOneCartItemQuantity(int cartItemId);
+         ApiResponse DecreaseOneCartItemQuantity(int cartItemId);
          ApiResponse UpdateCartItemQuantity(int cartItemId, int newQuantity);
     }
 }

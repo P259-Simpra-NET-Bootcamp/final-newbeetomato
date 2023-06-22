@@ -13,6 +13,7 @@ public class CategoryRepository : GenericRepository<Domain.Category>, ICategoryR
     }
     public IEnumerable<Domain.Category> FindByName(string name)
     {
+        //harfleri küçültçenmi boşlukları silcenmi
         var list = dbContext.Set<Domain.Category>().Where(c => c.Name.Contains(name)).ToList();
         return list;
     }

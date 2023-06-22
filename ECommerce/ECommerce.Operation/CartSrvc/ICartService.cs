@@ -12,6 +12,9 @@ namespace ECommerce.Operation.CartSrvc
 {
     public interface ICartService:IBaseService<Cart,CartRequest, CartResponse>
     {
+        ApiResponse CreateCartWithItem(int userId, int CartItemId);
+        ApiResponse DeleteCartWithItems(int CartItemId);
+        ApiResponse<Decimal> CartTotalAmount(int CartId);
         ApiResponse<CartResponse> GetById(int id);
     }
 }

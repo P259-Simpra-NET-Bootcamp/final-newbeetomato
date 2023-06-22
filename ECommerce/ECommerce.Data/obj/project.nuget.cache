@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RtkCCj57VDj3uQpm+3kSpJcyyEiSGyygQprMCumr101k3SxfXE3ZKAV4IvpHlqFYS9Ml8N78VDBAjy+a9zzf/w==",
+  "dgSpecHash": "ozgKxyEGv9cooYbpDKG6jxomVAsGboEz3KdGmkkp2cecWnVyb+03dna4Av3KRrKXb8RnudF+0af4yMPiFP7pVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ibrah\\Desktop\\BİTİRME\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
+  "projectFilePath": "C:\\Users\\ibrah\\Desktop\\bitirme\\final-newbeetomato\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ibrah\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
