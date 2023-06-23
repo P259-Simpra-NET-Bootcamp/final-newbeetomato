@@ -3,6 +3,8 @@ using ECommerce.Data.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 using ECommerce.Service.RestExtension;
 using ECommerce.Base.Types;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace ECommerce.Service;
 
@@ -22,6 +24,14 @@ public class Startup
 
         JwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
         services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+
+        services.AddControllers(options =>
+        {
+            var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+            options.Filters.Add(new AuthorizeFilter(policy));
+        });
 
         services.AddControllersWithViews(options =>
         options.CacheProfiles.Add(ResponseCasheType.Minute45, new CacheProfile

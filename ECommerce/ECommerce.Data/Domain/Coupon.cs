@@ -15,8 +15,10 @@ namespace ECommerce.Data.Domain;
 
 public class Coupon:BaseModel 
 {
-    public int OrderId { get; set; }
+    public int? OrderId { get; set; }
     public virtual Order Order { get; set; }    
+    public int? CartId { get; set; }
+    public virtual Cart Cart { get; set; }
     public string Code { get; set; }
     public bool DiscountAmount100 { get; set; } 
     public bool DiscountAmount50 { get; set; } 
@@ -38,6 +40,7 @@ public class CouponConfiguration : IEntityTypeConfiguration<Coupon>
         builder.Property(x => x.UpdatedBy).IsRequired(false).HasMaxLength(30);
 
         builder.Property(x => x.OrderId).IsRequired(false);
+        builder.Property(x => x.CartId).IsRequired(false);
         builder.Property(x => x.Code).IsRequired(true).HasMaxLength(10);
         builder.HasIndex(x => x.Code).IsUnique();
         builder.Property(x => x.DiscountAmount100).IsRequired(true);

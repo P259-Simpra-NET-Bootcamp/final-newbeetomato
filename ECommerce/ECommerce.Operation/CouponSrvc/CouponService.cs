@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Operation.CouponSrvc
 {
-    internal class CouponService
+    public class CouponService
     {
     }
 }

@@ -78,7 +78,6 @@ public class UserRepository :  IUserRepository
     public void Insert(ApplicationUser entity)
     {
         entity.CreatedAt = DateTime.UtcNow;
-        //entity.CreatedBy = "";
 
         dbContext.Set<ApplicationUser>().Add(entity);
     }

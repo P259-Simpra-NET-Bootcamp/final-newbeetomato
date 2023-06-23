@@ -7,7 +7,7 @@ namespace ECommerce.Data.Domain;
 [Table("ApplicationUser", Schema = "dbo")]
 public class ApplicationUser:IdentityUser
 {
-    
+    public long NationalIdNumber { get; set; }
     public DateTime? CreatedAt { get; set; }
     public string CreatedBy { get; set; }
     public DateTime? UpdatedAt { get; set; }
@@ -21,7 +21,7 @@ public class ApplicationUser:IdentityUser
     public decimal PointBalance { get; set; }
     public int CartId { get; set; }
     public virtual Cart Cart { get; set; }
-    public virtual ICollection<Order> Orders { get; set; }
+    public virtual List<Order> Orders { get; set; }
 
 
 }

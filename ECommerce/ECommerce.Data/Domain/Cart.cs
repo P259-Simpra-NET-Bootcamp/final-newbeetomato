@@ -13,8 +13,14 @@ public class Cart : BaseModel
 {
     public int UserId { get; set; }
     public virtual ApplicationUser ApplicationUser { get; set; }
-    public virtual List<CartItem> CartItems { get; set; }
+    public virtual List<CartItem>? CartItems { get; set; }
     public decimal CartTotalAmount { get; set; }
+    public decimal UsedPoints { get; set; }
+    public decimal CouponPoints { get; set; }
+    public decimal TotalDiscount { get; set; }
+    public decimal NetAmount { get; set; }
+    public virtual List<Coupon> Coupons { get; set; }
+
 }
 public class CartConfiguration : IEntityTypeConfiguration<Cart>
 {
@@ -24,8 +30,18 @@ public class CartConfiguration : IEntityTypeConfiguration<Cart>
         builder.Property(x => x.CreatedAt).IsRequired(false);
         builder.Property(x => x.CreatedBy).IsRequired(false).HasMaxLength(30);
         builder.Property(x => x.UpdatedAt).IsRequired(false);
+
+        builder.Property(x => x.UsedPoints).IsRequired(false);
+        builder.Property(x => x.TotalDiscount).IsRequired(false);
+        builder.Property(x => x.CouponPoints).IsRequired(false);
+       
+
         builder.Property(x => x.UpdatedBy).IsRequired(false).HasMaxLength(30);
         builder.Property(x => x.UserId).IsRequired(true);
-        
+
+        builder.HasMany(x => x.Coupons)
+            .WithOne(x => x.Cart)
+            .HasForeignKey(x => x.CartId)
+            .IsRequired(false);
     }
 }

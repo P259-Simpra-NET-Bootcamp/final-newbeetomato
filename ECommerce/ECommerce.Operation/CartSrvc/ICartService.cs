@@ -12,9 +12,15 @@ namespace ECommerce.Operation.CartSrvc
 {
     public interface ICartService:IBaseService<Cart,CartRequest, CartResponse>
     {
-        ApiResponse CreateCartWithItem(int userId, int CartItemId);
+        ApiResponse CreateCart(int userId, int ProductId, int quantitiy);
         ApiResponse DeleteCartWithItems(int CartItemId);
-        ApiResponse<Decimal> CartTotalAmount(int CartId);
-        ApiResponse<CartResponse> GetById(int id);
+        ApiResponse<decimal> CartTotalAmount(int CartId);
+        ApiResponse<CartResponse> GetCardItemsById(int id);
+        ApiResponse<CartResponse> GetCardCouponsById(int id);
+        ApiResponse<decimal> GetTotalDiscountForCard(int cartId);
+        ApiResponse<decimal> NetAmount(int cartId);
+        ApiResponse<decimal> UsePoint(int cartId, decimal point);
+        ApiResponse AddCouponToCart(int cartId, string couponCode);
+        ApiResponse RemoveCouponFromCart(int cartId, int couponId);
     }
 }
