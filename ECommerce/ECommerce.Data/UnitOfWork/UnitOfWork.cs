@@ -4,6 +4,10 @@ using ECommerce.Data.Repository.Base;
 using ECommerce.Data.Repository.Cart;
 using ECommerce.Data.Repository.CartItem;
 using ECommerce.Data.Repository.Category;
+using ECommerce.Data.Repository.Coupon;
+using ECommerce.Data.Repository.Order;
+using ECommerce.Data.Repository.OrderItem;
+using ECommerce.Data.Repository.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +26,39 @@ public class UnitOfWork : IUnitOfWork
         this.dbContext = dbContext;
 
     }
+    public ICouponRepository CouponRepository()
+    {
+        return new CouponRepository(dbContext);
+    }
+     public IProductRepository ProductRepository()
+    {
+        return new ProductRepository(dbContext);
+    }
+
+    public IOrderItemRepository OrderItemRepository()
+    {
+        return new OrderItemRepository(dbContext);
+    }
+
+    public IOrderRepository OrderRepository()
+    {
+        return new OrderRepository(dbContext);
+    }
     public ICartItemRepository CartItemRepository()
-    { 
-        return new CartItemRepository(dbContext); 
+    {
+        return new CartItemRepository(dbContext);
     }
 
     public ICartRepository CartRepository()
     {
         return new CartRepository(dbContext);
     }
-   
+
     public ICategoryRepository CategoryRepository()
     {
         return new CategoryRepository(dbContext);
     }
-    
+
 
     public IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel
     {
@@ -56,9 +78,9 @@ public class UnitOfWork : IUnitOfWork
                 dbContext.SaveChanges();
                 dbDcontextTransaction.Commit();
             }
-            catch (Exception )
+            catch (Exception)
             {
-                
+
                 dbDcontextTransaction.Rollback();
             }
         }

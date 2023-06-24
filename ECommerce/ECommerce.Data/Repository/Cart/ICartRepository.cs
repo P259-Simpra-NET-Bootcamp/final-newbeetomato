@@ -10,7 +10,9 @@ namespace ECommerce.Data.Repository.Cart;
 
 public interface ICartRepository : IGenericRepository<Domain.Cart>
 {
-    Domain.Product CreateCart(int userId, int ProductId, int quantitiy);
+    Domain.Cart GetCartWithAllItems(int cartId);
+    Domain.Product CreateCart(int userId, int ProductId);
+    Domain.Cart CreateCartFillInside(int userId, int ProductId, int quantitiy);
     void DeleteCartWithItems(int CartId);
     Domain.Cart CartTotalAmount(int cartId);
     Domain.Cart GetCartItemsById(int cartId);

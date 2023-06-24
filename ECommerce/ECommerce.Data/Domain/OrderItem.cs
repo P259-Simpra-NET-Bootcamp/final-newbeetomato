@@ -16,6 +16,7 @@ public class OrderItem : BaseModel
     public int ProductId { get; set; }
     public virtual Product Product { get; set; }
     public int Quantity { get; set; }
+    public bool IsCanceled { get; set; }
 }
 public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
 {

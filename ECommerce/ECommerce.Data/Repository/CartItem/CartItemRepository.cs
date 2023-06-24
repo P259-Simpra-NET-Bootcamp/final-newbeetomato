@@ -16,7 +16,7 @@ public class CartItemRepository : GenericRepository<Domain.CartItem>, ICartItemR
     {
     }
 
-    
+
     public Domain.Cart AddCartItemToCart(int cartId, int productId, int quantity)
     {
         var cart = dbContext.Set<Domain.Cart>().Find(cartId);
@@ -31,8 +31,6 @@ public class CartItemRepository : GenericRepository<Domain.CartItem>, ICartItemR
             };
 
             dbContext.Set<Domain.CartItem>().Add(cartItem);
-
-            dbContext.SaveChanges();
         }
         return cart;
     }
@@ -44,12 +42,11 @@ public class CartItemRepository : GenericRepository<Domain.CartItem>, ICartItemR
         if (cartItem != null)
         {
             cartItem.Quantity += 1;
-            dbContext.SaveChanges();
         }
         return cartItem;
     }
 
-    public Domain.CartItem DecreaseOneCartItemQuantity(int cartItemId)//düzelt sıfırsa silmek lazım 
+    public Domain.CartItem DecreaseOneCartItemQuantity(int cartItemId) 
     {
         var cartItem = dbContext.Set<Domain.CartItem>().Find(cartItemId);
 
@@ -61,20 +58,18 @@ public class CartItemRepository : GenericRepository<Domain.CartItem>, ICartItemR
             {
                 dbContext.Remove(cartItem);
             }
-            dbContext.SaveChanges();
         }
         cartItem = dbContext.Set<Domain.CartItem>().Find(cartItemId);
         return cartItem;
 
     }
-    public Domain.CartItem UpdateCartItemQuantity(int cartItemId, int newQuantity)//düzelt 0 ve negatif sayı için 
+    public Domain.CartItem UpdateCartItemQuantity(int cartItemId, int newQuantity)
     {
         var cartItem = dbContext.Set<Domain.CartItem>().Find(cartItemId);
 
         if (cartItem != null && newQuantity > 0)
         {
             cartItem.Quantity = newQuantity;
-            dbContext.SaveChanges();
             return cartItem;
         }
         return null;

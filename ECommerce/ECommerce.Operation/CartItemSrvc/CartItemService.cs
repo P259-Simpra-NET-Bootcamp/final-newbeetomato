@@ -38,6 +38,7 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
                 Log.Warning("Record not found for Id " + cartId);
                 return new ApiResponse("Record not found");
             }
+            unitOfWork.Complete();
             return new ApiResponse();
 
         }
@@ -60,6 +61,7 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
                 Log.Warning("Record not found for Id " + cartItemId);
                 return new ApiResponse("Record not found ");
             }
+            unitOfWork.Complete();
             return new ApiResponse();
 
         }
@@ -82,6 +84,7 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
                 Log.Warning("Record not found for Id  " + cartItemId);
                 return new ApiResponse("Record not found ");
             }
+            unitOfWork.Complete();
             return new ApiResponse();
 
         }
@@ -104,6 +107,7 @@ public class CartItemService : BaseService<CartItem, CartItemRequest, CartItemRe
                 Log.Warning("Record not found for Id or unwanted quantity number" + cartItemId);
                 return new ApiResponse("Record not found ");
             }
+            unitOfWork.Complete();
             return new ApiResponse();
 
         }

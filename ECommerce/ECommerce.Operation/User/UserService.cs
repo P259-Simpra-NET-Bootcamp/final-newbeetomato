@@ -24,7 +24,18 @@ public class UserService : IUserService
         this.mapper = mapper;
     }
 
+    public async Task<ApiResponse> InsertAdmin(ApplicationUserRequest request)
+    {
+        var response = await Insert(request); 
 
+        if (response.Success)
+        {
+            var user = await userManager.FindByEmailAsync(request.Email);
+            await userManager.AddToRoleAsync(user, "Admin"); 
+        }
+
+        return response;
+    }
     public async Task<ApiResponse<ApplicationUserResponse>> GetUser(ClaimsPrincipal User)
     {
         var user = await userManager.GetUserAsync(User);

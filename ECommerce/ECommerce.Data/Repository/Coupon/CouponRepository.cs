@@ -15,6 +15,9 @@ public class CouponRepository : GenericRepository<Domain.Coupon>, ICouponReposit
     {
 
     }
+   
+
+
     public IEnumerable<Domain.Coupon> GetCouponsByOrderId(int orderId)
     {
         return GetAll().Where(c => c.OrderId == orderId);
@@ -47,6 +50,10 @@ public class CouponRepository : GenericRepository<Domain.Coupon>, ICouponReposit
     public IEnumerable<Domain.Coupon> GetDiscount10Coupons()
     {
         return GetAll().Where(c => c.DiscountAmount10);
+    }
+    public IEnumerable<Domain.Coupon> GetCoupons() 
+    {
+        return GetAll();
     }
 
     public IEnumerable<Domain.Coupon> GetExpiredCoupons()

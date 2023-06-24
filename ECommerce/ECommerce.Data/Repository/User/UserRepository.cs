@@ -21,6 +21,7 @@ public class UserRepository :  IUserRepository
         this.dbContext = dbContext;
 
     }
+    
     public void Delete(ApplicationUser entity)
     {
         dbContext.Set<ApplicationUser>().Remove(entity);

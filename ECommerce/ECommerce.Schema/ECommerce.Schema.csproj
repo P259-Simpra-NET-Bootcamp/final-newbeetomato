@@ -10,10 +10,4 @@
     <ProjectReference Include="..\ECommerce.Data\ECommerce.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Coupon\" />
-    <Folder Include="OrderItem\" />
-    <Folder Include="Order\" />
-  </ItemGroup>
-
 </Project>

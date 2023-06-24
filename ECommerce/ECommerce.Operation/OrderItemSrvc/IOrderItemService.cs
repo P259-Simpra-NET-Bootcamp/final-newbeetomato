@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerce.Base.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,5 @@ namespace ECommerce.Operation.OrderItemSrvc;
 
 public interface IOrderItemService
 {
-
+    ApiResponse CancelOrderItem(int orderId, int orderItemId);
 }

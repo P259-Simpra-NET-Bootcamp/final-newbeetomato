@@ -41,7 +41,7 @@ public class CouponConfiguration : IEntityTypeConfiguration<Coupon>
 
         builder.Property(x => x.OrderId).IsRequired(false);
         builder.Property(x => x.CartId).IsRequired(false);
-        builder.Property(x => x.Code).IsRequired(true).HasMaxLength(10);
+        builder.Property(x => x.Code).IsRequired(true).HasMaxLength(10).IsUnicode(true);
         builder.HasIndex(x => x.Code).IsUnique();
         builder.Property(x => x.DiscountAmount100).IsRequired(true);
         builder.Property(x => x.DiscountAmount50).IsRequired(true);

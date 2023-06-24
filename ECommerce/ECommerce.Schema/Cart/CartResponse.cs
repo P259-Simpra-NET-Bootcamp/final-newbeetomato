@@ -18,7 +18,7 @@ public class CartResponse:BaseResponse
     public decimal TotalDiscount { get; set; }
     public decimal NetAmount { get; set; }
     public List<CartItemResponse> CartItems { get; set; }
-    public virtual List<Coupon> Coupons { get; set; }
+    public virtual List<Data.Domain.Coupon> Coupons { get; set; }
 
 
 

@@ -4,6 +4,8 @@ using ECommerce.Data.Domain;
 using ECommerce.Data.UnitOfWork;
 using ECommerce.Operation.BaseSrvc;
 using ECommerce.Schema.Cart;
+using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System;
@@ -25,23 +27,49 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
         this.mapper = mapper;
     }
 
-    public ApiResponse CreateCart(int userId, int ProductId, int quantitiy)
+
+    public ApiResponse<CartResponse> GetCartWithAllItems(int cartId)
     {
         try
         {
-            var entity = unitOfWork.CartRepository().CreateCart(userId,ProductId,quantitiy);
+            var entity = unitOfWork.CartRepository().GetCartWithAllItems(cartId);
             if (entity is null)
             {
-                Log.Warning("Record not found for ProductID " + ProductId);
-                return new ApiResponse("Record not found");
+                Log.Warning("Record not found for Id " + cartId);
+                return new ApiResponse<CartResponse>("Record not found");
             }
-            
-            return new ApiResponse();
+            var mapped = mapper.Map<CartResponse>(entity);
+            return new ApiResponse<CartResponse>(mapped);
+
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "CreateCartWithItem Exception");
-            return new ApiResponse(ex.Message);
+            Log.Error(ex, "CartTotalAmount Exception");
+            return new ApiResponse<CartResponse>(ex.Message);
+        }
+    }
+
+    public ApiResponse<CartResponse> CreateCart(int userId, int ProductId, int quantitiy)
+    {
+        try
+        {
+            var entity = unitOfWork.CartRepository().CreateCart(userId,ProductId);
+            if (entity is null)
+            {
+                Log.Warning("Record not found for ProductID " + ProductId);
+                return new ApiResponse<CartResponse>("Record not found");
+            }
+            unitOfWork.Complete();
+            var cardEntity = unitOfWork.CartRepository().CreateCartFillInside(userId, ProductId, quantitiy);
+            var mapped=mapper.Map<CartResponse>(cardEntity);
+            unitOfWork.Complete();
+
+            return new ApiResponse<CartResponse>(mapped);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "CreateCart Exception");
+            return new ApiResponse<CartResponse>(ex.Message);
         }
     }
     public ApiResponse DeleteCartWithItems(int CartItemId)
@@ -49,6 +77,7 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
         try
         {
             unitOfWork.CartRepository().DeleteCartWithItems(CartItemId);
+            unitOfWork.Complete();
             return new ApiResponse();
         }
         catch (Exception ex)
@@ -57,23 +86,25 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
             return new ApiResponse(ex.Message);
         }
     }
-    public ApiResponse<decimal> CartTotalAmount(int CartId)
+    public ApiResponse<CartResponse> CartTotalAmount(int CartId)
     {
-        try//
+        try
         {
             var entity = unitOfWork.CartRepository().CartTotalAmount(CartId);
             if (entity is null)
             {
                 Log.Warning("Record not found for Id " + CartId);
-                return new ApiResponse<decimal>("Record not found");
+                return new ApiResponse<CartResponse>("Record not found");
             }
-            decimal totalAmount = entity.CartTotalAmount;
-            return new ApiResponse<decimal>(totalAmount);
+            unitOfWork.Complete();
+            var mapped = mapper.Map<CartResponse>(entity);
+            return new ApiResponse<CartResponse>(mapped);
+            
         }
         catch (Exception ex)
         {
             Log.Error(ex, "CartTotalAmount Exception");
-            return new ApiResponse<decimal>(ex.Message);
+            return new ApiResponse<CartResponse>(ex.Message);
         }
     }
 
@@ -118,7 +149,7 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
 
     }
 
-    public ApiResponse<decimal> GetTotalDiscountForCard(int cartId) 
+    public ApiResponse<CartResponse> GetTotalDiscountForCard(int cartId) 
     {
         try
         {
@@ -126,18 +157,19 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
             if (entity is null)
             {
                 Log.Warning("Record not found for Id " + cartId);
-                return new ApiResponse<decimal>("Record not found");
+                return new ApiResponse<CartResponse>("Record not found");
             }
-            decimal discount=entity.TotalDiscount;
-            return new ApiResponse<decimal>(discount);
+            unitOfWork.Complete();
+            var mapped = mapper.Map<CartResponse>(entity);
+            return new ApiResponse<CartResponse>(mapped);
         }
         catch (Exception ex)
         {
             Log.Error(ex, " GetTotalDiscountForCard Exception");
-            return new ApiResponse<decimal>(ex.Message);
+            return new ApiResponse<CartResponse>(ex.Message);
         }
     }
-    public ApiResponse<decimal> NetAmount(int cartId) 
+    public ApiResponse<CartResponse> NetAmount(int cartId) 
     {
         try
         {
@@ -145,19 +177,20 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
             if (entity is null)
             {
                 Log.Warning("Record not found for Id " + cartId);
-                return new ApiResponse<decimal>("Record not found");
+                return new ApiResponse<CartResponse>("Record not found");
             }
-            decimal net = entity.NetAmount;
-            return new ApiResponse<decimal>(net);
+            unitOfWork.Complete();
+            var mapped = mapper.Map<CartResponse>(entity);
+            return new ApiResponse<CartResponse>(mapped);
         }
         catch (Exception ex)
         {
             Log.Error(ex, " NetAmount Exception");
-            return new ApiResponse<decimal>(ex.Message);
+            return new ApiResponse<CartResponse>(ex.Message);
         }
     }
 
-    public ApiResponse<decimal> UsePoint(int cartId, decimal point)
+    public ApiResponse<CartResponse> UsePoint(int cartId, decimal point)
     {
         try
         {
@@ -166,15 +199,15 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
             if (entity is null)
             {
                 Log.Warning("Record not found for Id " + cartId);
-                return new ApiResponse<decimal>("Record not found");
+                return new ApiResponse<CartResponse>("Record not found");
             }
-            decimal usedPonts = entity.UsedPoints;
-            return new ApiResponse<decimal>(usedPonts);
+            var mapped = mapper.Map<CartResponse>(entity);
+            return new ApiResponse<CartResponse>(mapped);
         }
         catch (Exception ex)
         {
             Log.Error(ex, " UsePoint Exception");
-            return new ApiResponse<decimal>(ex.Message);
+            return new ApiResponse<CartResponse>(ex.Message);
         }
     }
 
@@ -188,7 +221,7 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
                 Log.Warning("Record not found for CartId or Coupon code " );
                 return new ApiResponse("Record not found");
             }
-            
+            unitOfWork.Complete();
             return new ApiResponse();
         }
         catch (Exception ex)
@@ -208,7 +241,7 @@ public class CartService : BaseService<Cart, CartRequest, CartResponse>, ICartSe
                 Log.Warning("Record not found for CartId or Coupon code");
                 return new ApiResponse("Record not found");
             }
-            
+            unitOfWork.Complete();
             return new ApiResponse();
         }
         catch (Exception ex)

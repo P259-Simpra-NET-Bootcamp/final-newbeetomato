@@ -9,7 +9,10 @@ namespace ECommerce.Data.Repository.Order;
 
 public interface IOrderRepository:IGenericRepository<Domain.Order>
 {
-    void CreateOrder(int cartId);
+    Domain.Cart CreateOrder(int cartId);
+    void FillOrder(int cartId);
+    Domain.Order OrderAfterCancelledItems(int orderId);
+    Domain.Order CancelOrder(int orderId);
     List<Domain.Order> GetByDateBetween(DateTime startDate, DateTime endDate);
     List<Domain.Order> GetByUserIdAndDateBetween(int userId, DateTime startDate, DateTime endDate);
 }

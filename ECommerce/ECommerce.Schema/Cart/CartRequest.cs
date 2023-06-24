@@ -14,9 +14,9 @@ public class CartRequest:BaseRequest
     public int UserId { get; set; }
     public decimal CartTotalAmount { get; set; }
     public decimal UsedPoints { get; set; }
-    public decimal NetAmount { get; set; }
     public decimal CouponPoints { get; set; }
     public decimal TotalDiscount { get; set; }
+    public decimal NetAmount { get; set; }
     public List<CartItemRequest> CartItems { get; set; }
-    public virtual List<Coupon> Coupons { get; set; }
+    public virtual List<Data.Domain.Coupon> Coupons { get; set; }
 }

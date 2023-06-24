@@ -12,13 +12,14 @@ namespace ECommerce.Data.Domain;
 public class Order:BaseModel
 {
     public int UserId { get; set; }
-    public int? cardNo { get; set; }
+    public int? CardNo { get; set; }
     public virtual ApplicationUser ApplicationUser { get; set; }
     public virtual List<OrderItem> OrderItems { get; set; }
     public decimal TotalAmount { get; set; }
     public decimal UsedPoints { get; set; }
     public decimal CouponPoints { get; set; }
     public decimal TotalDiscount { get; set; }
+    public decimal GainedPoints { get; set; }
     public decimal NetAmount { get; set; }
     public bool IsCanceled { get; set; }
     public bool IsMoneyDeliveredBack { get; set; }
@@ -38,6 +39,10 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.Property(x => x.UsedPoints).IsRequired(false);
         builder.Property(x => x.TotalDiscount).IsRequired(false);
         builder.Property(x => x.CouponPoints).IsRequired(false);
+        builder.Property(x => x.GainedPoints).IsRequired(false);
+        builder.Property(x => x.IsCanceled).IsRequired(false);
+        builder.Property(x => x.IsMoneyDeliveredBack).IsRequired(false);
+        builder.Property(x => x.IsDelivered).IsRequired(false);
 
 
         builder.HasMany(x => x.OrderItems)

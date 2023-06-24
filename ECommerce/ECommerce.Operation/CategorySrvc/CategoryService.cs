@@ -21,16 +21,30 @@ namespace ECommerce.Operation.CategorySrvc
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
+        public ApiResponse<CategoryResponse> GetCategories()
+        {
+            try
+            {
+                var entity = unitOfWork.CartItemRepository().GetAll();
+                var mapped =mapper.Map<CategoryResponse>(entity);
+                return new ApiResponse<CategoryResponse>(mapped);
+            }
+            catch (Exception ex)
+            {
 
-        public ApiResponse<CategoryResponse> FindByName(string name) 
+                Log.Error(ex, "GetCategories Exception");
+                return new ApiResponse<CategoryResponse>(ex.Message);
+            }
+        }
+        public ApiResponse<CategoryResponse> FindByName(string name)
         {
             try
             {
                 if (string.IsNullOrEmpty(name)) { return new ApiResponse<CategoryResponse>("String NullorEmpty"); }
-                
-                    var entities = unitOfWork.CategoryRepository().FindByName(name);
-                    var mapped = mapper.Map<CategoryResponse>(entities); 
-                    return new ApiResponse<CategoryResponse>(mapped);
+
+                var entities = unitOfWork.CategoryRepository().FindByName(name);
+                var mapped = mapper.Map<CategoryResponse>(entities);
+                return new ApiResponse<CategoryResponse>(mapped);
             }
             catch (Exception ex)
             {
@@ -60,7 +74,7 @@ namespace ECommerce.Operation.CategorySrvc
                 return new ApiResponse<IEnumerable<ProductResponse>>(ex.Message);
             }
         }
-       
+
         public ApiResponse<IEnumerable<int>> GetProductIdsByCategory(int categoryId)
         {
             try

@@ -30,6 +30,9 @@ public class CartConfiguration : IEntityTypeConfiguration<Cart>
         builder.Property(x => x.CreatedAt).IsRequired(false);
         builder.Property(x => x.CreatedBy).IsRequired(false).HasMaxLength(30);
         builder.Property(x => x.UpdatedAt).IsRequired(false);
+        builder.Property(x => x.CartTotalAmount).IsRequired(false);
+        builder.Property(x => x.TotalDiscount).IsRequired(false);
+        builder.Property(x => x.NetAmount).IsRequired(false);
 
         builder.Property(x => x.UsedPoints).IsRequired(false);
         builder.Property(x => x.TotalDiscount).IsRequired(false);
