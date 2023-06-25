@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj": {}
+    "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj": {
+    "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
+        "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
         "projectName": "ECommerce.Base",
-        "projectPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
+        "projectPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
         "packagesPath": "C:\\Users\\ibrah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\obj\\",
+        "outputPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Base\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ibrah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -165,14 +165,14 @@
         }
       }
     },
-    "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj": {
+    "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
+        "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
         "projectName": "ECommerce.Data",
-        "projectPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
+        "projectPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
         "packagesPath": "C:\\Users\\ibrah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Data\\obj\\",
+        "outputPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ibrah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -189,8 +189,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj": {
-                "projectPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj"
+              "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj": {
+                "projectPath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj"
               }
             }
           }

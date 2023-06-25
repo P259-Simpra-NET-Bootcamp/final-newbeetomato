@@ -32,3 +32,20 @@ C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Schema\obj\De
 C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Schema\obj\Debug\net6.0\refint\ECommerce.Schema.dll
 C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.pdb
 C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ref\ECommerce.Schema.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Schema.deps.json
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Schema.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Schema.pdb
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Base.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Data.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Data.pdb
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\bin\Debug\net6.0\ECommerce.Base.pdb
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.csproj.AssemblyReference.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.AssemblyInfoInputs.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.AssemblyInfo.cs
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.csproj.CoreCompileInputs.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.csproj.CopyComplete
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\refint\ECommerce.Schema.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ECommerce.Schema.pdb
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Schema\obj\Debug\net6.0\ref\ECommerce.Schema.dll

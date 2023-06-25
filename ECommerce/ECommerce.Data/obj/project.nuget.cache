@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pC0nHISB9mS7PLt62c/RpWtWDScU7kdhzbzqs6qrGBgspPI1q5D4JpXd0jnL5u/nRcG2ufm5q6YwAQx4yAtc+A==",
+  "dgSpecHash": "mBs1AjaQhUJux9bYaIOkS8Q1fdu4zjN9lZLFWa7hnrfWzuAGo5n4+dACFJUiGyFnQWixUs288y301cbIcm/ong==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
+  "projectFilePath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\Yeni klasör\\ECommerce\\ECommerce.Data\\ECommerce.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ibrah\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\autofac.extensions.dependencyinjection\\6.0.0\\autofac.extensions.dependencyinjection.6.0.0.nupkg.sha512",

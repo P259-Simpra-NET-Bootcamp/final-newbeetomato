@@ -26,3 +26,17 @@ C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Base\obj\Debu
 C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.pdb
 C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.genruntimeconfig.cache
 C:\Users\ibrah\Desktop\final-newbeetomato-main\ECommerce\ECommerce.Base\obj\Debug\net6.0\ref\ECommerce.Base.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\bin\Debug\net6.0\ECommerce.Base.deps.json
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\bin\Debug\net6.0\ECommerce.Base.runtimeconfig.json
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\bin\Debug\net6.0\ECommerce.Base.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\bin\Debug\net6.0\ECommerce.Base.pdb
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.csproj.AssemblyReference.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.AssemblyInfoInputs.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.AssemblyInfo.cs
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.csproj.CoreCompileInputs.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\refint\ECommerce.Base.dll
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.pdb
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ECommerce.Base.genruntimeconfig.cache
+C:\Users\ibrah\Desktop\final-newbeetomato-main\Yeni klasör\ECommerce\ECommerce.Base\obj\Debug\net6.0\ref\ECommerce.Base.dll
