@@ -1,35 +1,37 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ECommerce.Data.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ECommerce.Data.Domain;
-[Table("ApplicationUser", Schema = "dbo")]
-public class ApplicationUser:IdentityUser
+namespace ECommerce.Data.Domain
 {
-    public long NationalIdNumber { get; set; }
-    public DateTime? CreatedAt { get; set; }
-    public string CreatedBy { get; set; }
-    public DateTime? UpdatedAt { get; set; }
-    public string UpdatedBy { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Role { get; set; }
-    public string Adress { get; set; }
-    public int Status { get; set; }
-    public decimal WalletBalance { get; set; }
-    public decimal PointBalance { get; set; }
-    public int CartId { get; set; }
-    public virtual Cart Cart { get; set; }
-    public virtual List<Order> Orders { get; set; }
-
-
+    [Table("ApplicationUser", Schema = "dbo")]
+    public class ApplicationUser : IdentityUser<int>
+    {
+        public long NationalIdNumber { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string UpdatedBy { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Role { get; set; }
+        public string Address { get; set; }
+        public int Status { get; set; }
+        public decimal WalletBalance { get; set; }
+        public decimal? PointBalance { get; set; }
+        public int CartId { get; set; }
+        public virtual Cart Cart { get; set; }
+        public virtual List<Order> Orders { get; set; }
+    }
 }
+
 public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
-        builder.Property(x => x.Id).IsRequired(true).UseIdentityColumn();//s
         builder.Property(x => x.CreatedAt).IsRequired(false);
         builder.Property(x => x.CreatedBy).IsRequired(false).HasMaxLength(30);
         builder.Property(x => x.UpdatedAt).IsRequired(false);
@@ -37,7 +39,7 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
 
         builder.Property(x => x.UserName).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.Email).IsRequired(true).HasMaxLength(30);
-        builder.Property(x => x.Adress).IsRequired(true).HasMaxLength(500);
+        builder.Property(x => x.Address).IsRequired(true).HasMaxLength(500);
         builder.Property(x => x.FirstName).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.LastName).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.Role).IsRequired(true).HasMaxLength(10);

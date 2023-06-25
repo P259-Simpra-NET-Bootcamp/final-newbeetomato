@@ -86,14 +86,14 @@ public class UserService : IUserService
         return new ApiResponse();
     }
 
-    public async Task<ApiResponse> Delete(string id)
+    public async Task<ApiResponse> Delete(int id)
     {
-        if (string.IsNullOrWhiteSpace(id))
+        var user = userManager.Users.Where(x => x.Id == id).FirstOrDefault();
+
+        if (user == null)
         {
             return new ApiResponse("Request was null");
         }
-
-        var user = userManager.Users.Where(x => x.Id == id).FirstOrDefault();
         await userManager.DeleteAsync(user);
 
         return new ApiResponse();
@@ -106,7 +106,7 @@ public class UserService : IUserService
         var mapped = mapper.Map<List<ApplicationUserResponse>>(list);
         return new ApiResponse<List<ApplicationUserResponse>>(mapped);
     }
-    public async Task<ApiResponse<ApplicationUserResponse>> GetById(string id)
+    public async Task<ApiResponse<ApplicationUserResponse>> GetById(int id)
     {
         var list = userManager.Users.Where(x => x.Id == id).FirstOrDefault();
         var mapped = mapper.Map<ApplicationUserResponse>(list);

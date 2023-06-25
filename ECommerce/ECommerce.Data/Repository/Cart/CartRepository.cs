@@ -139,7 +139,7 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
             .FirstOrDefault(c => c.Id == cartId);
         decimal couponDiscount = 0;
         decimal totalDiscount = 0;
-        decimal DPoints = 0;
+        decimal? DPoints = 0;
 
         if (cart != null)
         {
@@ -162,7 +162,7 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
 
             DPoints = cart.UsedPoints;
             if (DPoints == null) { DPoints = 0; }
-            decimal remainingAmount = cart.CartTotalAmount - totalDiscount;
+            decimal? remainingAmount = cart.CartTotalAmount - totalDiscount;
             if (remainingAmount > 0 && DPoints <= remainingAmount)
             {
 
@@ -184,7 +184,7 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
 
         if (cart != null)
         {
-            decimal netAmount = cart.CartTotalAmount - cart.TotalDiscount;
+            decimal? netAmount = cart.CartTotalAmount - cart.TotalDiscount;
             cart.NetAmount = netAmount;
         }
         return cart;
@@ -195,7 +195,7 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
 
         var cart = dbContext.Set<Domain.Cart>().FirstOrDefault(c => c.Id == cartId);
         var userId = cart.UserId;
-        decimal UserPoints = dbContext.Set<Domain.ApplicationUser>().Where(x => x.Id == userId.ToString())
+        decimal? UserPoints = dbContext.Set<Domain.ApplicationUser>().Where(x => x.Id == userId)
             .Select(p => p.PointBalance)
             .FirstOrDefault();
 

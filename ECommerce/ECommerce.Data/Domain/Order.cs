@@ -15,15 +15,15 @@ public class Order:BaseModel
     public int? CardNo { get; set; }
     public virtual ApplicationUser ApplicationUser { get; set; }
     public virtual List<OrderItem> OrderItems { get; set; }
-    public decimal TotalAmount { get; set; }
-    public decimal UsedPoints { get; set; }
-    public decimal CouponPoints { get; set; }
-    public decimal TotalDiscount { get; set; }
-    public decimal GainedPoints { get; set; }
-    public decimal NetAmount { get; set; }
-    public bool IsCanceled { get; set; }
-    public bool IsMoneyDeliveredBack { get; set; }
-    public bool IsDelivered { get; set; }
+    public decimal? TotalAmount { get; set; }
+    public decimal? UsedPoints { get; set; }
+    public decimal? CouponPoints { get; set; }
+    public decimal? TotalDiscount { get; set; }
+    public decimal? GainedPoints { get; set; }
+    public decimal? NetAmount { get; set; }
+    public bool? IsCanceled { get; set; }
+    public bool? IsMoneyDeliveredBack { get; set; }
+    public bool? IsDelivered { get; set; }
     public virtual List<Coupon> Coupons { get; set; }
 }
 public class OrderConfiguration : IEntityTypeConfiguration<Order>

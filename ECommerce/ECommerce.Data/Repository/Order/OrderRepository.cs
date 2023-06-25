@@ -89,12 +89,11 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
         var productEntity = new Domain.Product();
         decimal unitPrice = 0;
         decimal canceledItemsPrice = 0;
-        decimal usedPoints = 0;
-        decimal couponPoints = 0;
-        decimal pointToReturn = 0;
-        string userId = orderEntitiy.UserId.ToString();
+        decimal? usedPoints = 0;
+        decimal? couponPoints = 0;
+        decimal? pointToReturn = 0;
         var userEntity = dbContext.Set<Domain.ApplicationUser>()
-        .FirstOrDefault(o => o.Id == userId);
+        .FirstOrDefault(o => o.Id == orderEntitiy.UserId);
 
 
         couponPoints = orderEntitiy.CouponPoints;
@@ -132,9 +131,8 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
 
         if (orderEntitiy != null)
         {
-            string userIdString = orderEntitiy.UserId.ToString();
 
-            var userEntity = dbContext.Set<Domain.ApplicationUser>().FirstOrDefault(o => o.Id == userIdString);
+            var userEntity = dbContext.Set<Domain.ApplicationUser>().FirstOrDefault(o => o.Id == orderEntitiy.UserId);
             userEntity.PointBalance = userEntity.PointBalance + pointsToReturn;
 
             if (orderEntitiy.Coupons != null)

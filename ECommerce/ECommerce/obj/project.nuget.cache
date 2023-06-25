@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IK121h6ljIlU8IRWGoeO9mc15beN2aU78/y/3MWSiegbYDoMlRujKfZVJ/pQiPdiV4NfL6W74CjyObX7poYVfw==",
+  "dgSpecHash": "4xWmXuk7s9RtSdPf+DK0SUgIcxn2wQqEvkWTBnzQV+UomYlxVaxC3SKSf05usdoXTZ/I2nIoX7OQotqJdQTizA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ibrah\\Desktop\\bitirme\\final-newbeetomato\\ECommerce\\ECommerce\\ECommerce.Service.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\ibrah\\.nuget\\packages\\hangfire.core\\1.8.2\\hangfire.core.1.8.2.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\hangfire.netcore\\1.8.2\\hangfire.netcore.1.8.2.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\hangfire.sqlserver\\1.8.2\\hangfire.sqlserver.1.8.2.nupkg.sha512",
+    "C:\\Users\\ibrah\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\linqkit\\1.2.4\\linqkit.1.2.4.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\linqkit.core\\1.2.4\\linqkit.core.1.2.4.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.5\\microsoft.aspnetcore.authentication.jwtbearer.6.0.5.nupkg.sha512",
@@ -29,6 +30,7 @@
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.5\\microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.5\\microsoft.entityframeworkcore.abstractions.6.0.5.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.5\\microsoft.entityframeworkcore.analyzers.6.0.5.nupkg.sha512",
+    "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.5\\microsoft.entityframeworkcore.design.6.0.5.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.5\\microsoft.entityframeworkcore.relational.6.0.5.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.5\\microsoft.entityframeworkcore.sqlserver.6.0.5.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

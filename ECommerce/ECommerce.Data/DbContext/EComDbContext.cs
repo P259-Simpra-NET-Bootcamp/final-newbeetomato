@@ -1,11 +1,12 @@
 ﻿using ECommerce.Data.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace ECommerce.Data.DbContext;
 
-public class EComDbContext : IdentityDbContext<ApplicationUser>
+public class EComDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 {
     public EComDbContext(DbContextOptions<EComDbContext> options) : base(options)
     {

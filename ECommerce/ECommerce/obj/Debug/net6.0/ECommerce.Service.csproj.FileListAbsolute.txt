@@ -145,3 +145,5 @@ C:\Users\ibrah\Desktop\bitirme\final-newbeetomato\ECommerce\ECommerce\obj\Debug\
 C:\Users\ibrah\Desktop\bitirme\final-newbeetomato\ECommerce\ECommerce\obj\Debug\net6.0\ECommerce.Service.pdb
 C:\Users\ibrah\Desktop\bitirme\final-newbeetomato\ECommerce\ECommerce\obj\Debug\net6.0\ECommerce.Service.genruntimeconfig.cache
 C:\Users\ibrah\Desktop\bitirme\final-newbeetomato\ECommerce\ECommerce\obj\Debug\net6.0\ref\ECommerce.Service.dll
+C:\Users\ibrah\Desktop\bitirme\final-newbeetomato\ECommerce\ECommerce\bin\Debug\net6.0\Humanizer.dll
+C:\Users\ibrah\Desktop\bitirme\final-newbeetomato\ECommerce\ECommerce\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll

@@ -49,10 +49,10 @@ public class UserRepository :  IUserRepository
     }
     public ApplicationUser GetByIdWithInclude(int id, params string[] includes)
     {
-        string idString=id.ToString();
+        //string idString=id.ToString();
         var query = dbContext.Set<ApplicationUser>().AsQueryable();
         query = includes.Aggregate(query, (current, inc) => current.Include(inc));
-        return query.FirstOrDefault(x => x.Id == idString);
+        return query.FirstOrDefault(x => x.Id == id);
     }
     public IEnumerable<ApplicationUser> WhereWithInclude(Expression<Func<ApplicationUser, bool>> expression, params string[] includes)
     {
@@ -72,8 +72,8 @@ public class UserRepository :  IUserRepository
     }
     public ApplicationUser GetByIdAsNoTracking(int id)
     {
-        string idString = id.ToString();
-        return dbContext.Set<ApplicationUser>().AsNoTracking().FirstOrDefault(x => x.Id == idString);
+        //string idString = id.ToString();
+        return dbContext.Set<ApplicationUser>().AsNoTracking().FirstOrDefault(x => x.Id == id);
     }
 
     public void Insert(ApplicationUser entity)
