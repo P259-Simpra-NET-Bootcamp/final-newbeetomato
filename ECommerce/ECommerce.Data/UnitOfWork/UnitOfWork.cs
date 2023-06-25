@@ -8,6 +8,7 @@ using ECommerce.Data.Repository.Coupon;
 using ECommerce.Data.Repository.Order;
 using ECommerce.Data.Repository.OrderItem;
 using ECommerce.Data.Repository.Product;
+using ECommerce.Data.Repository.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,14 @@ public class UnitOfWork : IUnitOfWork
         this.dbContext = dbContext;
 
     }
+
     public ICouponRepository CouponRepository()
     {
         return new CouponRepository(dbContext);
+    }
+    public IUserRepository UserRepository()
+    {
+        return new UserRepository(dbContext);
     }
      public IProductRepository ProductRepository()
     {

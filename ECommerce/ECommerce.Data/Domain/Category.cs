@@ -33,8 +33,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.HasMany(c => c.ProductCategories)
                 .WithOne(pc => pc.Category)
                 .HasForeignKey(pc => pc.CategoryId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired().OnDelete(DeleteBehavior.Restrict);
 
     }
 }

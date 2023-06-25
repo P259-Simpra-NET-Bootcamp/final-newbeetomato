@@ -7,6 +7,7 @@ using ECommerce.Data.Repository.Coupon;
 using ECommerce.Data.Repository.Order;
 using ECommerce.Data.Repository.OrderItem;
 using ECommerce.Data.Repository.Product;
+using ECommerce.Data.Repository.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace ECommerce.Data.UnitOfWork;
 
 public interface IUnitOfWork:IDisposable
 {
+
     IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel;
     IProductRepository ProductRepository();
+    IUserRepository UserRepository();
     ICartRepository CartRepository();
     IOrderRepository OrderRepository();
     ICartItemRepository CartItemRepository();

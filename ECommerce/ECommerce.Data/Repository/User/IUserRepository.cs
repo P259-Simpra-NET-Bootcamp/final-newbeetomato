@@ -10,6 +10,7 @@ namespace ECommerce.Data.Repository.User;
 
 public interface IUserRepository
 {
+    Domain.ApplicationUser AddMoney(int userId, int value);
     ApplicationUser GetById(int id);
     ApplicationUser GetByIdAsNoTracking(int id);
     ApplicationUser GetByIdWithInclude(int id, params string[] includes);

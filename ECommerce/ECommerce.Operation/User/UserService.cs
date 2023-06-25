@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using ECommerce.Base.Response;
 using ECommerce.Data.Domain;
+using ECommerce.Data.UnitOfWork;
+using ECommerce.Schema.Category;
 using ECommerce.Schema.User;
 using Microsoft.AspNetCore.Identity;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,15 +18,19 @@ namespace ECommerce.Operation.User;
 public class UserService : IUserService
 {
     private readonly UserManager<ApplicationUser> userManager;
+    private readonly IUnitOfWork unitOfWork;
+
     private readonly IMapper mapper;
 
 
-    public UserService(UserManager<ApplicationUser> userManager, IMapper mapper)
+    public UserService(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager, IMapper mapper)
     {
+        this.unitOfWork = unitOfWork;
         this.userManager = userManager;
         this.mapper = mapper;
     }
-
+     
+    
     public async Task<ApiResponse> InsertAdmin(ApplicationUserRequest request)
     {
         var response = await Insert(request); 
@@ -116,5 +123,22 @@ public class UserService : IUserService
     {
         var id = userManager.GetUserId(User);
         return new ApiResponse<string>(id);
+    }
+    public ApiResponse AddMoney(int userId, int value)
+    {
+        try
+        {
+            var entity = unitOfWork.UserRepository().AddMoney(userId, value);
+            if (entity == null)
+            { return new ApiResponse("user couldnt found for user ıd"); }
+            unitOfWork.Complete();
+            return new ApiResponse();
+        }
+        catch (Exception ex)
+        {
+
+            Log.Error(ex, "AddMoney Exception");
+            return new ApiResponse(ex.Message);
+        }
     }
 }

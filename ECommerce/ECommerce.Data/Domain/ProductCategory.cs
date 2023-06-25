@@ -12,7 +12,7 @@ namespace ECommerce.Data.Domain;
 
 [Table("ProductCategory", Schema = "dbo")]
 
-public class ProductCategory:BaseModel
+public class ProductCategory : BaseModel
 {
     public int CategoryId { get; set; }
     public Category Category { get; set; }
@@ -30,11 +30,12 @@ public class ProductCategoryConfiguration : IEntityTypeConfiguration<ProductCate
 
         builder.HasOne(pc => pc.Product)
             .WithMany(p => p.ProductCategories)
-            .HasForeignKey(pc => pc.ProductId);
+            .HasForeignKey(pc => pc.ProductId).OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(pc => pc.Category)
             .WithMany(c => c.ProductCategories)
-            .HasForeignKey(pc => pc.CategoryId);
+            .HasForeignKey(pc => pc.CategoryId).OnDelete(DeleteBehavior.Restrict);
+
 
     }
 }

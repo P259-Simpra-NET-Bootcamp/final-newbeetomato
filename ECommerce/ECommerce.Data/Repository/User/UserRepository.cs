@@ -21,7 +21,16 @@ public class UserRepository :  IUserRepository
         this.dbContext = dbContext;
 
     }
-    
+    public ApplicationUser AddMoney(int userId,int value) 
+    {
+        var entity=dbContext.Set<ApplicationUser>().FirstOrDefault(x=>x.Id==userId);
+        if (entity!=null) 
+        {
+            entity.WalletBalance = entity.WalletBalance + value;
+        }
+        return entity;
+
+    }
     public void Delete(ApplicationUser entity)
     {
         dbContext.Set<ApplicationUser>().Remove(entity);
