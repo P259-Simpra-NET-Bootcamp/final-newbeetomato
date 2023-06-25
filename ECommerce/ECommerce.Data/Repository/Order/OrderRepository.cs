@@ -15,10 +15,13 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
 
     public Domain.Cart CreateOrder(int cartId)
     {
+
+       
         var cart = dbContext.Set<Domain.Cart>()
             .Include(c => c.CartItems)
             .Include(c => c.Coupons)
             .FirstOrDefault(c => c.Id == cartId);
+        
 
         if (cart != null)
         {
@@ -73,7 +76,20 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
 
         }
     }
+    public void GainPoints(int cartId) 
+    {
+        
+        var order = dbContext.Set<Domain.Order>()
+            .FirstOrDefault(c => c.CardNo == cartId);
+        var cart = dbContext.Set<Domain.Cart>()
+           .FirstOrDefault(c => c.Id == cartId);
+        var user = dbContext.Set<Domain.ApplicationUser>()
+           .FirstOrDefault(c => c.Id == cart.UserId);
 
+        user.PointBalance = user.PointBalance + order.NetAmount / 100;
+
+
+    }
 
     public Domain.Order OrderAfterCancelledItems(int orderId)
     {

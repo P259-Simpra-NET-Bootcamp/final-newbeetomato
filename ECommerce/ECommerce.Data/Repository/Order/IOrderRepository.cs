@@ -9,6 +9,7 @@ namespace ECommerce.Data.Repository.Order;
 
 public interface IOrderRepository:IGenericRepository<Domain.Order>
 {
+    void GainPoints(int cartId);
     Domain.Cart CreateOrder(int cartId);
     void FillOrder(int cartId);
     Domain.Order OrderAfterCancelledItems(int orderId);

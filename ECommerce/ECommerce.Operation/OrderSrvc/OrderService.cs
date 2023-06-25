@@ -32,6 +32,9 @@ namespace ECommerce.Operation.OrderSrvc
                 unitOfWork.Complete();
                 unitOfWork.OrderRepository().FillOrder(cartId);
                 unitOfWork.Complete();
+                unitOfWork.OrderRepository().GainPoints(cartId);
+                unitOfWork.Complete();
+
 
                 return new ApiResponse();
             }
