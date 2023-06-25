@@ -21,6 +21,7 @@ public class EComDbContext : DbContext
     public DbSet<OrderItem> OrderItem { get; set; }
     public DbSet<Product> Product { get; set; }
     public DbSet<ProductCategory> ProductCategory { get; set; }
+    public DbSet<User> User { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new CartConfiguration());

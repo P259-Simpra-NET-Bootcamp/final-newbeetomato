@@ -23,12 +23,6 @@ public class UserController : ControllerBase
         return userService.AddUser(request.UserName, request.Email, request.FirstName, request.LastName, request.Address, request.Password,true);
     }
 
-    [HttpPost("AddAdminFirst")]
-    public ApiResponse<UserResponse> AddAdminFirstTime(UserRequest request)
-    {
-        return userService.AddUser(request.UserName, request.Email, request.FirstName, request.LastName, request.Address, request.Password,true);
-
-    }
     
     [HttpPost("User")]
     public ApiResponse<UserResponse> AddUser(UserRequest request)
