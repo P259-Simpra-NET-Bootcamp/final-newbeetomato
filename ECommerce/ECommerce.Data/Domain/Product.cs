@@ -14,7 +14,7 @@ namespace ECommerce.Data.Domain;
 
 public class Product:BaseModel
 {
-    public int CategoryId { get; set; }
+    public int? CategoryId { get; set; }
     public virtual Category Category { get; set; }
     public string Name { get; set; }
     public string Url { get; set; }
@@ -34,12 +34,11 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.Property(x => x.UpdatedAt).IsRequired(false);
         builder.Property(x => x.UpdatedBy).IsRequired(false).HasMaxLength(30);
 
-        builder.Property(x => x.CategoryId).IsRequired(true);
         builder.Property(x => x.Name).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.Url).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.Tag).IsRequired(true).HasMaxLength(100);
         builder.Property(x => x.Details).IsRequired(true).HasMaxLength(500);
-        builder.Property(x => x.CategoryId).IsRequired(true);
+        builder.Property(x => x.CategoryId).IsRequired(false);
         builder.Property(x => x.UnitPrice)
        .IsRequired(true)
        .HasPrecision(10, 2);
@@ -49,7 +48,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.HasMany(p => p.ProductCategories)
                 .WithOne(pc => pc.Product)
                 .HasForeignKey(pc => pc.ProductId)
-                .IsRequired(true).OnDelete(DeleteBehavior.Restrict);
+                .IsRequired(false).OnDelete(DeleteBehavior.Restrict);
 
 
     }

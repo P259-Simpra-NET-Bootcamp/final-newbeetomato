@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Operation.CouponSrvc
 {
-    public class CouponService : BaseService<Coupon, CouponRequest, CouponResponse>
+    public class CouponService : BaseService<Coupon, CouponRequest, CouponResponse>, ICouponService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
@@ -22,8 +22,26 @@ namespace ECommerce.Operation.CouponSrvc
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
-
-        public ApiResponse<IEnumerable<CouponResponse>> GetCouponsByOrderId(int orderId)
+        public ApiResponse<IEnumerable<CouponResponse>> GetCoupons()
+        {
+            try
+            {
+                var coupons = unitOfWork.CouponRepository().GetCoupons();
+                if (coupons == null)
+                {
+                    Log.Warning("No coupons found ");
+                    return new ApiResponse<IEnumerable<CouponResponse>>("No coupons found");
+                }
+                var mapped = mapper.Map<IEnumerable<CouponResponse>>(coupons);
+                return new ApiResponse<IEnumerable<CouponResponse>>(mapped);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "GetCoupons Exception");
+                return new ApiResponse<IEnumerable<CouponResponse>>(ex.Message);
+            }
+        }
+            public ApiResponse<IEnumerable<CouponResponse>> GetCouponsByOrderId(int orderId)
         {
             try
             {

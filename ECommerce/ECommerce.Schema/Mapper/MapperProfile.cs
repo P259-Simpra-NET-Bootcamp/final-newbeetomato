@@ -20,6 +20,7 @@ public class MapperProfile:Profile
 {
     public MapperProfile()
     {
+
         CreateMap<Data.Domain.Cart, CartResponse>();
         CreateMap<CreateCartRequest, Data.Domain.Cart>();
         CreateMap<CartRequest, Data.Domain.Cart>();
@@ -32,15 +33,24 @@ public class MapperProfile:Profile
 
         CreateMap<CouponRequest, Data.Domain.Coupon>();
         CreateMap<Data.Domain.Coupon, CouponResponse>();
+        CreateMap < List<Data.Domain.Category>,CategoryResponse > ();
         
         CreateMap<ProductRequest, Data.Domain.Product>();
         CreateMap<Data.Domain.Product, ProductResponse>();
+        CreateMap<ProductResponse, ProductRequest>();
+        CreateMap<ProductRequest, ProductResponse>();
+        
+        CreateMap<OrderRequest, Data.Domain.Order>();
+        CreateMap<Data.Domain.Order, OrderRequest>();
+        CreateMap<Data.Domain.Order, OrderResponse>();
+        CreateMap<OrderResponse, OrderRequest>();
+        CreateMap<OrderRequest, OrderResponse>();
         
         CreateMap<OrderRequest, Data.Domain.Order>();
         CreateMap<Data.Domain.Order, OrderResponse>();
 
-        CreateMap<ApplicationUserRequest, ApplicationUser>();
-        CreateMap<ApplicationUser, ApplicationUserResponse>();
+        CreateMap<UserRequest, Data.Domain.User>();
+        CreateMap<Data.Domain.User, UserResponse>();
 
     }
 

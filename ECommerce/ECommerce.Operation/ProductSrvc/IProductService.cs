@@ -1,4 +1,5 @@
 ﻿using ECommerce.Base.Response;
+using ECommerce.Operation.BaseSrvc;
 using ECommerce.Schema.Category;
 using ECommerce.Schema.Product;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Operation.ProductSrvc
 {
-    public interface IProductService
+    public interface IProductService:IBaseService<Data.Domain.Product,ProductRequest,ProductResponse>
     {
 
         ApiResponse<IEnumerable<ProductResponse>> GetProductsByName(string name);

@@ -1,5 +1,5 @@
 ﻿using ECommerce.Base.Model;
-using ECommerce.Data.DbContext;
+using ECommerce.Data.Context;
 using ECommerce.Data.Repository.Base;
 using ECommerce.Data.Repository.Cart;
 using ECommerce.Data.Repository.CartItem;

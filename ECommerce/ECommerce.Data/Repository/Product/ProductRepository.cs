@@ -1,4 +1,4 @@
-﻿using ECommerce.Data.DbContext;
+﻿using ECommerce.Data.Context;
 using ECommerce.Data.Repository.Base;
 using ECommerce.Data.Repository.Category;
 

@@ -18,7 +18,7 @@ namespace ECommerce.Service.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")] // Sadece admin rolüne sahip kullanıcılar bu işlemi yapabilir
+        //[Authorize(Roles = "Admin")] // Sadece admin rolüne sahip kullanıcılar bu işlemi yapabilir
         public ApiResponse CreateCoupon([FromBody] CouponRequest request)
         {
             var response = couponService.Insert(request);

@@ -25,8 +25,8 @@ namespace ECommerce.Operation.CategorySrvc
         {
             try
             {
-                var entity = unitOfWork.CartItemRepository().GetAll();
-                var mapped =mapper.Map<CategoryResponse>(entity);
+                var entity = unitOfWork.CategoryRepository().GetAll();
+                var mapped =mapper.Map<List<Category>,CategoryResponse>(entity);
                 return new ApiResponse<CategoryResponse>(mapped);
             }
             catch (Exception ex)

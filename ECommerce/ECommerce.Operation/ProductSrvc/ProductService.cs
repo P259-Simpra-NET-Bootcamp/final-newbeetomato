@@ -45,7 +45,7 @@ namespace ECommerce.Operation.ProductSrvc
             try
             {
                 var categories = unitOfWork.ProductRepository().GetCategoriesForProduct(productId);
-                var mappedCategories = mapper.Map<IEnumerable<CategoryResponse>>(categories);
+                var mappedCategories = mapper.Map< IEnumerable<CategoryResponse>>(categories);
                 return new ApiResponse<IEnumerable<CategoryResponse>>(mappedCategories);
             }
             catch (Exception ex)

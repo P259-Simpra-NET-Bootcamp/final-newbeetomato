@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Operation.OrderItemSrvc;
 
-public class OrderItemService : BaseService<OrderItem, OrderItemRequest, OrderItemResponse>
+public class OrderItemService : BaseService<OrderItem, OrderItemRequest, OrderItemResponse>, IOrderItemService
 {
     private readonly IUnitOfWork unitOfWork;
     private readonly IMapper mapper;

@@ -25,7 +25,7 @@ namespace ECommerce.Service.Controllers
             
         }
 
-        [HttpPost]
+        [HttpPost("{AddItemToCart}")]
         public ApiResponse<CartResponse> CreateCart([FromBody] CreateCartRequest request)
         {
             return cartService.CreateCart(request.UserId, request.ProductId, request.Quantity);

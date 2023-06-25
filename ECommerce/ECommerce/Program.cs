@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using ECommerce.Service.RestExtension;
+using Microsoft.AspNetCore.Hosting;
 using Serilog;
 
 namespace ECommerce.Service;
@@ -20,7 +23,11 @@ public class Program
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
            Host.CreateDefaultBuilder(args)
-               .UseSerilog()
+           .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+         .ConfigureContainer<ContainerBuilder>(builder =>
+         {
+             builder.RegisterModule(new AutofacExtension());
+         }).UseSerilog()
                .ConfigureWebHostDefaults(webBuilder =>
                {
                    webBuilder.UseStartup<Startup>();

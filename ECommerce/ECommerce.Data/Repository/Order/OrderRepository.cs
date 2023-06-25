@@ -1,4 +1,4 @@
-﻿using ECommerce.Data.DbContext;
+﻿using ECommerce.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using ECommerce.Data.Repository.Base;
 using ECommerce.Data.Domain;
@@ -83,7 +83,7 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
             .FirstOrDefault(c => c.CardNo == cartId);
         var cart = dbContext.Set<Domain.Cart>()
            .FirstOrDefault(c => c.Id == cartId);
-        var user = dbContext.Set<Domain.ApplicationUser>()
+        var user = dbContext.Set<Domain.User>()
            .FirstOrDefault(c => c.Id == cart.UserId);
 
         user.PointBalance = user.PointBalance + order.NetAmount / 100;
@@ -108,7 +108,7 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
         decimal? usedPoints = 0;
         decimal? couponPoints = 0;
         decimal? pointToReturn = 0;
-        var userEntity = dbContext.Set<Domain.ApplicationUser>()
+        var userEntity = dbContext.Set<Domain.User>()
         .FirstOrDefault(o => o.Id == orderEntitiy.UserId);
 
 
@@ -148,7 +148,7 @@ public class OrderRepository : GenericRepository<Domain.Order>, IOrderRepository
         if (orderEntitiy != null)
         {
 
-            var userEntity = dbContext.Set<Domain.ApplicationUser>().FirstOrDefault(o => o.Id == orderEntitiy.UserId);
+            var userEntity = dbContext.Set<Domain.User>().FirstOrDefault(o => o.Id == orderEntitiy.UserId);
             userEntity.PointBalance = userEntity.PointBalance + pointsToReturn;
 
             if (orderEntitiy.Coupons != null)

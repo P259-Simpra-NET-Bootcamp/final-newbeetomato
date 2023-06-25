@@ -1,4 +1,4 @@
-﻿using ECommerce.Data.DbContext;
+﻿using ECommerce.Data.Context;
 using ECommerce.Data.Repository.Base;
 using System;
 using System.Collections.Generic;

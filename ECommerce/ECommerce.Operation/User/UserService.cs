@@ -93,7 +93,7 @@ public class UserService : IUserService
         return new ApiResponse();
     }
 
-    public async Task<ApiResponse> Delete(int id)
+    public async Task<ApiResponse> Delete(string id)
     {
         var user = userManager.Users.Where(x => x.Id == id).FirstOrDefault();
 
@@ -113,7 +113,7 @@ public class UserService : IUserService
         var mapped = mapper.Map<List<ApplicationUserResponse>>(list);
         return new ApiResponse<List<ApplicationUserResponse>>(mapped);
     }
-    public async Task<ApiResponse<ApplicationUserResponse>> GetById(int id)
+    public async Task<ApiResponse<ApplicationUserResponse>> GetById(string id)
     {
         var list = userManager.Users.Where(x => x.Id == id).FirstOrDefault();
         var mapped = mapper.Map<ApplicationUserResponse>(list);
@@ -124,7 +124,7 @@ public class UserService : IUserService
         var id = userManager.GetUserId(User);
         return new ApiResponse<string>(id);
     }
-    public ApiResponse AddMoney(int userId, int value)
+    public ApiResponse AddMoney(string userId, int value)
     {
         try
         {

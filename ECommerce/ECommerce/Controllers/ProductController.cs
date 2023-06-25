@@ -63,6 +63,50 @@ namespace ECommerce.Service.Controllers
                 return StatusCode(500, "An error occurred while getting product count");
             }
         }
+        [HttpPost]
+        public ActionResult<ApiResponse<ProductResponse>> CreateProduct(ProductRequest request)
+        {
+            try
+            {
+                
+                var response = productService.Insert(request);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred while creating product");
+                return StatusCode(500, "An error occurred while creating product");
+            }
+        }
 
+        [HttpPut("{productId}")]
+        public ActionResult<ApiResponse<ProductResponse>> UpdateProduct(int productId, ProductRequest request)
+        {
+            try
+            {
+                var response = productService.Update(productId, request);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred while updating product");
+                return StatusCode(500, "An error occurred while updating product");
+            }
+        }
+
+        [HttpDelete("{productId}")]
+        public ActionResult<ApiResponse> DeleteProduct(int productId)
+        {
+            try
+            {
+                productService.Delete(productId);
+                return Ok(new ApiResponse());
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error occurred while deleting product");
+                return StatusCode(500, "An error occurred while deleting product");
+            }
+        }
     }
 }

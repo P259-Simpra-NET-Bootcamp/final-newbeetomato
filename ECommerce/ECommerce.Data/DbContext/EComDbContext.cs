@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Data.DbContext;
 
-public class EComDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
+public class EComDbContext : IdentityDbContext<ApplicationUser>
 {
     public EComDbContext(DbContextOptions<EComDbContext> options) : base(options)
     {

@@ -16,8 +16,8 @@ namespace ECommerce.Data.Domain;
 public class Coupon:BaseModel 
 {
     public int? OrderId { get; set; }
-    public virtual Order Order { get; set; }    
-    public int? CartId { get; set; }
+    public virtual Order Order { get; set; }
+    public int? CartId { get; set; } 
     public virtual Cart Cart { get; set; }
     public string Code { get; set; }
     public bool DiscountAmount100 { get; set; } 
@@ -51,6 +51,9 @@ public class CouponConfiguration : IEntityTypeConfiguration<Coupon>
         builder.Property(x => x.IsUsed).IsRequired(true);
         builder.Property(x => x.ExpirationDate).IsRequired(true);
         builder.Property(x => x.CreatedDate).IsRequired(true);
-        
+        builder.HasOne(x => x.Cart)
+       .WithMany()
+       .HasForeignKey(x => x.CartId)
+       .OnDelete(DeleteBehavior.Restrict);
     }
 }

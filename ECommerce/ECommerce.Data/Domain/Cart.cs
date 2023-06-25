@@ -12,7 +12,7 @@ namespace ECommerce.Data.Domain;
 public class Cart : BaseModel
 {
     public int UserId { get; set; }
-    public virtual ApplicationUser ApplicationUser { get; set; }
+    public virtual User user { get; set; }
     public virtual List<CartItem> CartItems { get; set; }
     public decimal? CartTotalAmount { get; set; }
     public decimal? UsedPoints { get; set; }

@@ -8,21 +8,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ECommerce.Data.Domain
 {
     [Table("ApplicationUser", Schema = "dbo")]
-    public class ApplicationUser : IdentityUser<int>
+    public class ApplicationUser : IdentityUser
     {
         public long NationalIdNumber { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public string UpdatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Role { get; set; }
-        public string Address { get; set; }
-        public int Status { get; set; }
-        public decimal WalletBalance { get; set; }
+        public string? Role { get; set; }
+        public string? Address { get; set; }
+        public int? Status { get; set; }
+        public decimal? WalletBalance { get; set; }
         public decimal? PointBalance { get; set; }
-        public int CartId { get; set; }
+        public int? CartId { get; set; }
         public virtual Cart Cart { get; set; }
         public virtual List<Order> Orders { get; set; }
     }
@@ -39,11 +39,11 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
 
         builder.Property(x => x.UserName).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.Email).IsRequired(true).HasMaxLength(30);
-        builder.Property(x => x.Address).IsRequired(true).HasMaxLength(500);
+        builder.Property(x => x.Address).IsRequired(false).HasMaxLength(500);
         builder.Property(x => x.FirstName).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.LastName).IsRequired(true).HasMaxLength(30);
-        builder.Property(x => x.Role).IsRequired(true).HasMaxLength(10);
-        builder.Property(x => x.Status).IsRequired(true);
+        builder.Property(x => x.Role).IsRequired(false);
+        builder.Property(x => x.Status).IsRequired(false);
 
         builder.HasIndex(x => x.UserName).IsUnique(true);
 

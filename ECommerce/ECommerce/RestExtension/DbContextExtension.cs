@@ -1,4 +1,4 @@
-﻿using ECommerce.Data.DbContext;
+﻿using ECommerce.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Service.RestExtension;

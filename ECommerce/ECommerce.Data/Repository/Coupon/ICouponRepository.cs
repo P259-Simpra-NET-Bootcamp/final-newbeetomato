@@ -18,5 +18,6 @@ public interface ICouponRepository: IGenericRepository<Domain.Coupon>
     IEnumerable<Domain.Coupon> GetDiscount10Coupons();
     IEnumerable<Domain.Coupon> GetExpiredCoupons();
     IEnumerable<Domain.Coupon> GetNotExpiredCoupons();
+    IEnumerable<Domain.Coupon> GetCoupons();
 
 }

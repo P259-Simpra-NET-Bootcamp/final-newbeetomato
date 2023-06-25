@@ -13,7 +13,7 @@ public class Order:BaseModel
 {
     public int UserId { get; set; }
     public int? CardNo { get; set; }
-    public virtual ApplicationUser ApplicationUser { get; set; }
+    public virtual User user { get; set; }
     public virtual List<OrderItem> OrderItems { get; set; }
     public decimal? TotalAmount { get; set; }
     public decimal? UsedPoints { get; set; }

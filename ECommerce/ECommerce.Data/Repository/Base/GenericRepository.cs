@@ -1,5 +1,5 @@
 ﻿using ECommerce.Base.Model;
-using ECommerce.Data.DbContext;
+using ECommerce.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -69,7 +69,6 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
     public void Insert(Entity entity)
     {
         entity.CreatedAt = DateTime.UtcNow;
-
         dbContext.Set<Entity>().Add(entity);
     }
 

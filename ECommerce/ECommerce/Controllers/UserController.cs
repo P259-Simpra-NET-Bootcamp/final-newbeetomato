@@ -89,7 +89,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ApiResponse<ApplicationUserResponse>> GetById(int id)
+    public async Task<ApiResponse<ApplicationUserResponse>> GetById(string id)
     {
         var model = await service.GetById(id);
         return model;
@@ -124,7 +124,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ApiResponse> Delete(int id)
+    public async Task<ApiResponse> Delete(string id)
     {
         var response = await service.Delete(id);
         return response;

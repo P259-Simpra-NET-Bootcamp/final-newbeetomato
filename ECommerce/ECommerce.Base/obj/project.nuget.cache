@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "bnrMC67ptc4N0WIv/AO/HpvJXC5DJjyD1hTagVaMKV+CdSDqBDfU5+BuakhO4jAUBdqrsZ7tjxhnakwN3TTMtA==",
+  "dgSpecHash": "2CBb3c3vYYEcwvr0/RYd3blo3GTvQ+Kv3xmA+2erhZd0wIFmT2xoqaJ2NTXlctg8K1COpMnBwT2pA2Ung4xMWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ibrah\\Desktop\\bitirme\\final-newbeetomato\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
+  "projectFilePath": "C:\\Users\\ibrah\\Desktop\\final-newbeetomato-main\\ECommerce\\ECommerce.Base\\ECommerce.Base.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ibrah\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
+    "C:\\Users\\ibrah\\.nuget\\packages\\autofac.extensions.dependencyinjection\\6.0.0\\autofac.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\ibrah\\.nuget\\packages\\hangfire\\1.8.2\\hangfire.1.8.2.nupkg.sha512",

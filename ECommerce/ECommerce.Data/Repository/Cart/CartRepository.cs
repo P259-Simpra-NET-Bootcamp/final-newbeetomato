@@ -1,5 +1,5 @@
 ﻿using ECommerce.Base.Response;
-using ECommerce.Data.DbContext;
+using ECommerce.Data.Context;
 
 using ECommerce.Data.Repository.Base;
 using Microsoft.EntityFrameworkCore;
@@ -55,7 +55,6 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
     public void DeleteCartWithItems(int CartId)
     {
         var items = dbContext.Set<Domain.CartItem>().Where(x => x.CartId == CartId).ToList();
-        var coupons = dbContext.Set<Domain.Coupon>().Where(x => x.CartId == CartId).ToList();
 
         if (items != null)
         {
@@ -64,15 +63,6 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
                 dbContext.Set<Domain.CartItem>().Remove(item);
             }
         }
-
-        if (coupons != null)
-        {
-            foreach (var coupon in coupons)
-            {
-                coupon.CartId = null;
-            }
-        }
-
         DeleteById(CartId);
     }
 
@@ -195,7 +185,7 @@ public class CartRepository : GenericRepository<Domain.Cart>, ICartRepository
 
         var cart = dbContext.Set<Domain.Cart>().FirstOrDefault(c => c.Id == cartId);
         var userId = cart.UserId;
-        decimal? UserPoints = dbContext.Set<Domain.ApplicationUser>().Where(x => x.Id == userId)
+        decimal? UserPoints = dbContext.Set<Domain.User>().Where(x => x.Id == userId)
             .Select(p => p.PointBalance)
             .FirstOrDefault();
 
