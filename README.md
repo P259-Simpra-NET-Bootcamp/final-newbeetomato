@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/EBv50WFu)
 
 
 Bu dökümantasyon, dijital ürünlerin satıldığı bir platformun geliştirilmesi için tasarlanan proje hakkında detaylı bilgiler içermektedir. Proje, mobil ve web uygulamaları üzerinden satış yapabilen bir platformun oluşturulmasını hedeflemektedir. Aşağıda proje kapsamında yer alan ana başlıklar ve detayları yer almaktadır.
